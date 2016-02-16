@@ -32,7 +32,7 @@ public void OnClientPutInServer(int client) {
 }
 
 public Action OnTakeDamage(int victim, int &attacker, int &inflictor, float &damage, int &damagetype, int &weapon, float damageForce[3], float damagePosition[3], int damagecustom) {
-	if(victim > 0 && attacker > 0 && IsClientInGame(victim) && IsClientInGame(attacker)) {
+	if(victim > 0 && victim <= MaxClients && attacker > 0 && attacker <= MaxClients && IsClientInGame(victim) && IsClientInGame(attacker)) {
 		if (g_bHeadShot[victim] && g_bHeadShot[attacker]) {
 			if(damagetype & CS_DMG_HEADSHOT) {
 				return Plugin_Continue;
